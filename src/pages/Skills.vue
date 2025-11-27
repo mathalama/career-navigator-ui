@@ -10,7 +10,9 @@
     <!-- Выбор сфер интересов -->
     <section class="rounded-lg bg-white p-6 shadow-sm">
       <h3 class="mb-4 text-lg font-medium text-slate-800">Сферы интересов</h3>
-      <p class="mb-4 text-sm text-slate-600">Нажмите на категорию, чтобы раскрыть/скрыть навыки</p>
+      <p class="mb-4 text-sm text-slate-600">
+        Нажмите на категорию, чтобы раскрыть/скрыть навыки
+      </p>
       <div class="space-y-3">
         <div
           v-for="category in categories"
@@ -27,20 +29,34 @@
             class="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 rounded-lg transition-colors"
           >
             <div class="flex items-center gap-3">
-              <span class="text-xl font-bold text-slate-600">{{ category.icon }}</span>
-              <span class="font-medium text-slate-700">{{ category.name }}</span>
-              <span v-if="getCategorySelectedCount(category.id) > 0" class="text-sm text-accent-2 font-medium">
+              <span class="text-xl font-bold text-slate-600">{{
+                category.icon
+              }}</span>
+              <span class="font-medium text-slate-700">{{
+                category.name
+              }}</span>
+              <span
+                v-if="getCategorySelectedCount(category.id) > 0"
+                class="text-sm text-accent-2 font-medium"
+              >
                 ({{ getCategorySelectedCount(category.id) }})
               </span>
             </div>
             <svg
               class="w-5 h-5 text-slate-500 transition-transform"
-              :class="{ 'rotate-180': expandedCategories.includes(category.id) }"
+              :class="{
+                'rotate-180': expandedCategories.includes(category.id),
+              }"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
 
@@ -92,7 +108,9 @@
             @click="setSkillLevelAndClose(level.value)"
             class="w-full px-4 py-3 rounded-lg border-2 text-left transition-all hover:border-accent-2"
             :class="
-              categorySkills[selectedSkillForLevel.categoryId]?.[selectedSkillForLevel.skillName]?.level === level.value
+              categorySkills[selectedSkillForLevel.categoryId]?.[
+                selectedSkillForLevel.skillName
+              ]?.level === level.value
                 ? 'border-accent-2 bg-accent-2/5'
                 : 'border-slate-200'
             "
@@ -136,7 +154,10 @@
         </div>
       </div>
       <div class="space-y-3">
-        <div v-for="(skills, categoryId) in selectedSkillsByCategory" :key="categoryId">
+        <div
+          v-for="(skills, categoryId) in selectedSkillsByCategory"
+          :key="categoryId"
+        >
           <div class="text-sm font-medium text-slate-600 mb-2">
             {{ getCategoryName(categoryId) }}
           </div>
@@ -178,12 +199,59 @@ const categories = ref<SkillCategory[]>([
     name: "Backend",
     icon: "BE",
     skills: [
-      "Java", "Spring Boot", "Spring Framework", "Hibernate", "JPA", "Python", "Django", "Flask", "FastAPI",
-      "Node.js", "Express.js", "NestJS", "PHP", "Laravel", "Symfony", "C#", ".NET Core", "ASP.NET",
-      "Ruby", "Ruby on Rails", "Go", "Gin", "Fiber", "Kotlin", "Ktor", "SQL", "PostgreSQL", "MySQL",
-      "Oracle", "MS SQL Server", "MongoDB", "Redis", "Cassandra", "Elasticsearch", "REST API", "GraphQL",
-      "gRPC", "WebSocket", "Microservices", "SOA", "DDD", "RabbitMQ", "Kafka", "NATS", "JWT", "OAuth2",
-      "Security", "Unit Testing", "Integration Testing", "Git", "GitHub", "GitLab", "Bitbucket",
+      "Java",
+      "Spring Boot",
+      "Spring Framework",
+      "Hibernate",
+      "JPA",
+      "Python",
+      "Django",
+      "Flask",
+      "FastAPI",
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "PHP",
+      "Laravel",
+      "Symfony",
+      "C#",
+      ".NET Core",
+      "ASP.NET",
+      "Ruby",
+      "Ruby on Rails",
+      "Go",
+      "Gin",
+      "Fiber",
+      "Kotlin",
+      "Ktor",
+      "SQL",
+      "PostgreSQL",
+      "MySQL",
+      "Oracle",
+      "MS SQL Server",
+      "MongoDB",
+      "Redis",
+      "Cassandra",
+      "Elasticsearch",
+      "REST API",
+      "GraphQL",
+      "gRPC",
+      "WebSocket",
+      "Microservices",
+      "SOA",
+      "DDD",
+      "RabbitMQ",
+      "Kafka",
+      "NATS",
+      "JWT",
+      "OAuth2",
+      "Security",
+      "Unit Testing",
+      "Integration Testing",
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Bitbucket",
     ],
   },
   {
@@ -191,13 +259,65 @@ const categories = ref<SkillCategory[]>([
     name: "Frontend",
     icon: "FE",
     skills: [
-      "HTML5", "CSS3", "SCSS", "SASS", "LESS", "JavaScript", "ES6+", "TypeScript", "React", "React Hooks",
-      "Redux", "Redux Toolkit", "MobX", "Zustand", "Vue.js", "Vue 3", "Vuex", "Pinia", "Nuxt.js",
-      "Angular", "RxJS", "NgRx", "Svelte", "SvelteKit", "Next.js", "Gatsby", "Remix", "Tailwind CSS",
-      "Bootstrap", "Material UI", "Ant Design", "Chakra UI", "Webpack", "Vite", "Rollup", "esbuild",
-      "Parcel", "npm", "yarn", "pnpm", "jQuery", "Lodash", "Responsive Design", "Mobile First",
-      "CSS Grid", "Flexbox", "CSS Animations", "Web Accessibility", "ARIA", "WCAG", "PWA",
-      "Service Workers", "Jest", "Vitest", "Cypress", "Playwright", "Testing Library", "SEO", "Web Performance",
+      "HTML5",
+      "CSS3",
+      "SCSS",
+      "SASS",
+      "LESS",
+      "JavaScript",
+      "ES6+",
+      "TypeScript",
+      "React",
+      "React Hooks",
+      "Redux",
+      "Redux Toolkit",
+      "MobX",
+      "Zustand",
+      "Vue.js",
+      "Vue 3",
+      "Vuex",
+      "Pinia",
+      "Nuxt.js",
+      "Angular",
+      "RxJS",
+      "NgRx",
+      "Svelte",
+      "SvelteKit",
+      "Next.js",
+      "Gatsby",
+      "Remix",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Material UI",
+      "Ant Design",
+      "Chakra UI",
+      "Webpack",
+      "Vite",
+      "Rollup",
+      "esbuild",
+      "Parcel",
+      "npm",
+      "yarn",
+      "pnpm",
+      "jQuery",
+      "Lodash",
+      "Responsive Design",
+      "Mobile First",
+      "CSS Grid",
+      "Flexbox",
+      "CSS Animations",
+      "Web Accessibility",
+      "ARIA",
+      "WCAG",
+      "PWA",
+      "Service Workers",
+      "Jest",
+      "Vitest",
+      "Cypress",
+      "Playwright",
+      "Testing Library",
+      "SEO",
+      "Web Performance",
     ],
   },
   {
@@ -205,14 +325,59 @@ const categories = ref<SkillCategory[]>([
     name: "Data Science",
     icon: "DS",
     skills: [
-      "Python", "R", "Julia", "MATLAB", "Pandas", "NumPy", "SciPy", "Matplotlib", "Seaborn", "Plotly",
-      "Bokeh", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "TensorFlow", "Keras", "PyTorch",
-      "JAX", "Jupyter", "JupyterLab", "Google Colab", "SQL", "NoSQL", "BigQuery", "Snowflake",
-      "Apache Spark", "PySpark", "Hadoop", "Hive", "Data Visualization", "Tableau", "Power BI",
-      "Looker", "Statistics", "Probability", "Linear Algebra", "Machine Learning", "Deep Learning",
-      "NLP", "Computer Vision", "Feature Engineering", "Model Deployment", "A/B Testing",
-      "Hypothesis Testing", "Time Series", "Forecasting", "ETL", "Data Pipeline", "Airflow", "Docker",
-      "MLflow", "Kubeflow",
+      "Python",
+      "R",
+      "Julia",
+      "MATLAB",
+      "Pandas",
+      "NumPy",
+      "SciPy",
+      "Matplotlib",
+      "Seaborn",
+      "Plotly",
+      "Bokeh",
+      "Scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "CatBoost",
+      "TensorFlow",
+      "Keras",
+      "PyTorch",
+      "JAX",
+      "Jupyter",
+      "JupyterLab",
+      "Google Colab",
+      "SQL",
+      "NoSQL",
+      "BigQuery",
+      "Snowflake",
+      "Apache Spark",
+      "PySpark",
+      "Hadoop",
+      "Hive",
+      "Data Visualization",
+      "Tableau",
+      "Power BI",
+      "Looker",
+      "Statistics",
+      "Probability",
+      "Linear Algebra",
+      "Machine Learning",
+      "Deep Learning",
+      "NLP",
+      "Computer Vision",
+      "Feature Engineering",
+      "Model Deployment",
+      "A/B Testing",
+      "Hypothesis Testing",
+      "Time Series",
+      "Forecasting",
+      "ETL",
+      "Data Pipeline",
+      "Airflow",
+      "Docker",
+      "MLflow",
+      "Kubeflow",
     ],
   },
   {
@@ -220,13 +385,51 @@ const categories = ref<SkillCategory[]>([
     name: "Mobile Dev",
     icon: "MB",
     skills: [
-      "Swift", "SwiftUI", "UIKit", "Combine", "Kotlin", "Jetpack Compose", "Android SDK", "React Native",
-      "Expo", "Flutter", "Dart", "Xamarin", "MAUI", "Ionic", "Cordova", "Capacitor", "iOS Development",
-      "Xcode", "TestFlight", "Android Development", "Android Studio", "Gradle", "Mobile UI/UX",
-      "Material Design", "Human Interface Guidelines", "Firebase", "Firebase Auth", "Firestore",
-      "Cloud Messaging", "Push Notifications", "Deep Linking", "App Store", "Google Play",
-      "App Distribution", "Core Data", "Room", "Realm", "SQLite", "REST API", "GraphQL", "XCTest",
-      "Espresso", "Detox", "App Performance", "Crash Analytics",
+      "Swift",
+      "SwiftUI",
+      "UIKit",
+      "Combine",
+      "Kotlin",
+      "Jetpack Compose",
+      "Android SDK",
+      "React Native",
+      "Expo",
+      "Flutter",
+      "Dart",
+      "Xamarin",
+      "MAUI",
+      "Ionic",
+      "Cordova",
+      "Capacitor",
+      "iOS Development",
+      "Xcode",
+      "TestFlight",
+      "Android Development",
+      "Android Studio",
+      "Gradle",
+      "Mobile UI/UX",
+      "Material Design",
+      "Human Interface Guidelines",
+      "Firebase",
+      "Firebase Auth",
+      "Firestore",
+      "Cloud Messaging",
+      "Push Notifications",
+      "Deep Linking",
+      "App Store",
+      "Google Play",
+      "App Distribution",
+      "Core Data",
+      "Room",
+      "Realm",
+      "SQLite",
+      "REST API",
+      "GraphQL",
+      "XCTest",
+      "Espresso",
+      "Detox",
+      "App Performance",
+      "Crash Analytics",
     ],
   },
   {
@@ -234,14 +437,68 @@ const categories = ref<SkillCategory[]>([
     name: "DevOps",
     icon: "DO",
     skills: [
-      "Docker", "Docker Compose", "Dockerfile", "Kubernetes", "Helm", "K8s", "Minikube", "CI/CD",
-      "Jenkins", "GitHub Actions", "GitLab CI", "CircleCI", "Travis CI", "Terraform", "Pulumi",
-      "CloudFormation", "Ansible", "Chef", "Puppet", "SaltStack", "AWS", "EC2", "S3", "Lambda",
-      "ECS", "EKS", "RDS", "CloudWatch", "Azure", "Azure DevOps", "Azure Functions", "Google Cloud",
-      "GCP", "Cloud Run", "GKE", "Linux", "Ubuntu", "CentOS", "RHEL", "Debian", "Bash",
-      "Shell Scripting", "PowerShell", "Nginx", "Apache", "HAProxy", "Traefik", "Prometheus",
-      "Grafana", "ELK Stack", "Datadog", "New Relic", "Git", "GitOps", "ArgoCD", "Flux",
-      "Networking", "DNS", "Load Balancing", "Security", "SSL/TLS", "Vault",
+      "Docker",
+      "Docker Compose",
+      "Dockerfile",
+      "Kubernetes",
+      "Helm",
+      "K8s",
+      "Minikube",
+      "CI/CD",
+      "Jenkins",
+      "GitHub Actions",
+      "GitLab CI",
+      "CircleCI",
+      "Travis CI",
+      "Terraform",
+      "Pulumi",
+      "CloudFormation",
+      "Ansible",
+      "Chef",
+      "Puppet",
+      "SaltStack",
+      "AWS",
+      "EC2",
+      "S3",
+      "Lambda",
+      "ECS",
+      "EKS",
+      "RDS",
+      "CloudWatch",
+      "Azure",
+      "Azure DevOps",
+      "Azure Functions",
+      "Google Cloud",
+      "GCP",
+      "Cloud Run",
+      "GKE",
+      "Linux",
+      "Ubuntu",
+      "CentOS",
+      "RHEL",
+      "Debian",
+      "Bash",
+      "Shell Scripting",
+      "PowerShell",
+      "Nginx",
+      "Apache",
+      "HAProxy",
+      "Traefik",
+      "Prometheus",
+      "Grafana",
+      "ELK Stack",
+      "Datadog",
+      "New Relic",
+      "Git",
+      "GitOps",
+      "ArgoCD",
+      "Flux",
+      "Networking",
+      "DNS",
+      "Load Balancing",
+      "Security",
+      "SSL/TLS",
+      "Vault",
     ],
   },
   {
@@ -249,14 +506,61 @@ const categories = ref<SkillCategory[]>([
     name: "QA/Testing",
     icon: "QA",
     skills: [
-      "Manual Testing", "Test Cases", "Test Plans", "Automated Testing", "Test Automation", "Selenium",
-      "Selenium WebDriver", "Cypress", "Playwright", "Puppeteer", "TestCafe", "Jest", "Mocha",
-      "Jasmine", "Vitest", "JUnit", "TestNG", "PyTest", "unittest", "Postman", "API Testing",
-      "REST Assured", "Performance Testing", "Load Testing", "JMeter", "Gatling", "k6", "Appium",
-      "Detox", "XCUITest", "Espresso", "BDD", "Cucumber", "SpecFlow", "Behave", "Test Management",
-      "TestRail", "Zephyr", "Xray", "Bug Tracking", "JIRA", "Bugzilla", "Mantis", "CI/CD",
-      "Jenkins", "GitHub Actions", "SQL", "Database Testing", "Security Testing", "Penetration Testing",
-      "Accessibility Testing", "WCAG", "Regression Testing", "Smoke Testing", "Sanity Testing",
+      "Manual Testing",
+      "Test Cases",
+      "Test Plans",
+      "Automated Testing",
+      "Test Automation",
+      "Selenium",
+      "Selenium WebDriver",
+      "Cypress",
+      "Playwright",
+      "Puppeteer",
+      "TestCafe",
+      "Jest",
+      "Mocha",
+      "Jasmine",
+      "Vitest",
+      "JUnit",
+      "TestNG",
+      "PyTest",
+      "unittest",
+      "Postman",
+      "API Testing",
+      "REST Assured",
+      "Performance Testing",
+      "Load Testing",
+      "JMeter",
+      "Gatling",
+      "k6",
+      "Appium",
+      "Detox",
+      "XCUITest",
+      "Espresso",
+      "BDD",
+      "Cucumber",
+      "SpecFlow",
+      "Behave",
+      "Test Management",
+      "TestRail",
+      "Zephyr",
+      "Xray",
+      "Bug Tracking",
+      "JIRA",
+      "Bugzilla",
+      "Mantis",
+      "CI/CD",
+      "Jenkins",
+      "GitHub Actions",
+      "SQL",
+      "Database Testing",
+      "Security Testing",
+      "Penetration Testing",
+      "Accessibility Testing",
+      "WCAG",
+      "Regression Testing",
+      "Smoke Testing",
+      "Sanity Testing",
     ],
   },
   {
@@ -264,14 +568,52 @@ const categories = ref<SkillCategory[]>([
     name: "UX/UI Design",
     icon: "UI",
     skills: [
-      "Figma", "FigJam", "Prototyping", "Adobe XD", "Adobe Photoshop", "Adobe Illustrator", "Sketch",
-      "InVision", "Zeplin", "User Research", "User Interviews", "Surveys", "Wireframing", "Low-fidelity",
-      "High-fidelity", "Interactive Prototypes", "Design Systems", "Component Libraries", "Style Guides",
-      "Usability Testing", "A/B Testing", "User Testing", "Information Architecture", "IA", "Sitemaps",
-      "Interaction Design", "IxD", "Microinteractions", "User Flow", "User Journey Mapping", "Personas",
-      "Empathy Mapping", "Design Thinking", "Human-Centered Design", "Accessibility", "Inclusive Design",
-      "WCAG", "Mobile Design", "Responsive Design", "Typography", "Color Theory", "Layout",
-      "Material Design", "iOS Guidelines", "HTML/CSS", "Frontend Basics",
+      "Figma",
+      "FigJam",
+      "Prototyping",
+      "Adobe XD",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Sketch",
+      "InVision",
+      "Zeplin",
+      "User Research",
+      "User Interviews",
+      "Surveys",
+      "Wireframing",
+      "Low-fidelity",
+      "High-fidelity",
+      "Interactive Prototypes",
+      "Design Systems",
+      "Component Libraries",
+      "Style Guides",
+      "Usability Testing",
+      "A/B Testing",
+      "User Testing",
+      "Information Architecture",
+      "IA",
+      "Sitemaps",
+      "Interaction Design",
+      "IxD",
+      "Microinteractions",
+      "User Flow",
+      "User Journey Mapping",
+      "Personas",
+      "Empathy Mapping",
+      "Design Thinking",
+      "Human-Centered Design",
+      "Accessibility",
+      "Inclusive Design",
+      "WCAG",
+      "Mobile Design",
+      "Responsive Design",
+      "Typography",
+      "Color Theory",
+      "Layout",
+      "Material Design",
+      "iOS Guidelines",
+      "HTML/CSS",
+      "Frontend Basics",
     ],
   },
   {
@@ -279,15 +621,57 @@ const categories = ref<SkillCategory[]>([
     name: "Cybersecurity",
     icon: "CS",
     skills: [
-      "Network Security", "Firewall", "IDS/IPS", "Penetration Testing", "Ethical Hacking", "Bug Bounty",
-      "Cryptography", "Encryption", "PKI", "Security Auditing", "Vulnerability Assessment", "SIEM",
-      "Splunk", "QRadar", "ELK", "Incident Response", "Forensics", "Malware Analysis",
-      "Web Application Security", "OWASP Top 10", "API Security", "REST Security", "OAuth2",
-      "Cloud Security", "AWS Security", "Azure Security", "Compliance", "GDPR", "ISO 27001", "SOC 2",
-      "PCI DSS", "Threat Intelligence", "Threat Hunting", "Security Testing", "Burp Suite", "Metasploit",
-      "Nmap", "Wireshark", "Identity Management", "IAM", "SSO", "MFA", "Zero Trust",
-      "Network Segmentation", "Kali Linux", "Parrot OS", "Python", "Bash", "PowerShell",
-      "Security Awareness", "Social Engineering",
+      "Network Security",
+      "Firewall",
+      "IDS/IPS",
+      "Penetration Testing",
+      "Ethical Hacking",
+      "Bug Bounty",
+      "Cryptography",
+      "Encryption",
+      "PKI",
+      "Security Auditing",
+      "Vulnerability Assessment",
+      "SIEM",
+      "Splunk",
+      "QRadar",
+      "ELK",
+      "Incident Response",
+      "Forensics",
+      "Malware Analysis",
+      "Web Application Security",
+      "OWASP Top 10",
+      "API Security",
+      "REST Security",
+      "OAuth2",
+      "Cloud Security",
+      "AWS Security",
+      "Azure Security",
+      "Compliance",
+      "GDPR",
+      "ISO 27001",
+      "SOC 2",
+      "PCI DSS",
+      "Threat Intelligence",
+      "Threat Hunting",
+      "Security Testing",
+      "Burp Suite",
+      "Metasploit",
+      "Nmap",
+      "Wireshark",
+      "Identity Management",
+      "IAM",
+      "SSO",
+      "MFA",
+      "Zero Trust",
+      "Network Segmentation",
+      "Kali Linux",
+      "Parrot OS",
+      "Python",
+      "Bash",
+      "PowerShell",
+      "Security Awareness",
+      "Social Engineering",
     ],
   },
 ]);
@@ -299,12 +683,17 @@ const levels = [
 ];
 
 const expandedCategories = ref<string[]>([]);
-const categorySkills = ref<Record<string, Record<string, { selected: boolean; level?: SkillLevel }>>>({});
+const categorySkills = ref<
+  Record<string, Record<string, { selected: boolean; level?: SkillLevel }>>
+>({});
 const isSaving = ref(false);
 const isLoading = ref(true);
-const selectedSkillForLevel = ref<{ categoryId: string; skillName: string } | null>(null);
+const selectedSkillForLevel = ref<{
+  categoryId: string;
+  skillName: string;
+} | null>(null);
 
-// Инициализация структуры навыков для всех категорий
+// Initialize skills structure for all categories
 const initializeCategorySkills = () => {
   categories.value.forEach((category) => {
     if (!categorySkills.value[category.id]) {
@@ -331,11 +720,11 @@ const toggleCategory = (categoryId: string) => {
 const toggleSkill = (categoryId: string, skillName: string) => {
   const skill = categorySkills.value[categoryId][skillName];
   if (skill.selected) {
-    // Снимаем выделение
+    // Deselect skill
     skill.selected = false;
     skill.level = undefined;
   } else {
-    // Выделяем и открываем модалку для выбора уровня
+    // Select skill and open modal to choose level
     skill.selected = true;
     selectedSkillForLevel.value = { categoryId, skillName };
   }
@@ -421,7 +810,7 @@ const saveSkills = async () => {
     return;
   }
 
-  // Формируем данные для сохранения - массив категорий с навыками
+  // Prepare data for saving - array of categories with skills
   const skillsData: Array<{
     category: string;
     skills: Array<{ name: string; level: string }>;
@@ -442,9 +831,11 @@ const saveSkills = async () => {
   isSaving.value = true;
   try {
     await api.saveSkills(JSON.stringify(skillsData));
-    alert(`Сохранено ${selectedSkillsCount.value} навыков из ${skillsData.length} категорий!`);
+    alert(
+      `Сохранено ${selectedSkillsCount.value} навыков из ${skillsData.length} категорий!`
+    );
   } catch (error: any) {
-    // Если ошибка 401 (Unauthorized)
+    // If 401 error (Unauthorized)
     if (error.status === 401) {
       alert("Сессия истекла. Пожалуйста, войдите снова");
       router.push("/login");
@@ -456,7 +847,7 @@ const saveSkills = async () => {
   }
 };
 
-// Загрузка сохраненных навыков из профиля
+// Load saved skills from profile
 const loadSavedSkills = async () => {
   // Проверяем авторизацию перед загрузкой
   if (!isAuthenticated.value) {
@@ -469,8 +860,8 @@ const loadSavedSkills = async () => {
     const profile = await api.getProfile();
     if (profile.skills) {
       const savedData = JSON.parse(profile.skills);
-      
-      // Поддержка старого формата (одна категория)
+
+      // Support old format (single category)
       if (savedData.category && savedData.skills && !Array.isArray(savedData)) {
         const categoryId = savedData.category;
         if (categorySkills.value[categoryId]) {
@@ -478,14 +869,15 @@ const loadSavedSkills = async () => {
             (saved: { name: string; level: SkillLevel }) => {
               if (categorySkills.value[categoryId][saved.name]) {
                 categorySkills.value[categoryId][saved.name].selected = true;
-                categorySkills.value[categoryId][saved.name].level = saved.level;
+                categorySkills.value[categoryId][saved.name].level =
+                  saved.level;
               }
             }
           );
           expandedCategories.value.push(categoryId);
         }
       }
-      // Новый формат (массив категорий)
+      // New format (array of categories)
       else if (Array.isArray(savedData)) {
         savedData.forEach(
           (categoryData: {
@@ -508,7 +900,7 @@ const loadSavedSkills = async () => {
       }
     }
   } catch (error: any) {
-    // Если ошибка 401, не показываем ошибку, просто не загружаем
+    // If 401 error, don't show error, just don't load
     if (error.status !== 401) {
       console.log("Error loading saved skills:", error);
     }

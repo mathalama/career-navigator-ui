@@ -323,7 +323,7 @@ const parsedSkills = computed(() => {
   try {
     const data = JSON.parse(user.value.skills);
 
-    // Новый формат - массив категорий
+    // New format - array of categories
     if (Array.isArray(data)) {
       const allSkills: Array<{
         categoryId: string;
@@ -349,7 +349,7 @@ const parsedSkills = computed(() => {
       return allSkills.length > 0 ? allSkills : null;
     }
 
-    // Старый формат - одна категория
+    // Old format - single category
     if (data.category && data.skills && Array.isArray(data.skills)) {
       return [
         {
@@ -476,7 +476,7 @@ const handleSave = async () => {
     await updateProfile(formData.value);
     isEditing.value = false;
   } catch (e: any) {
-    // Если ошибка 401 (Unauthorized)
+    // If 401 error (Unauthorized)
     if (e?.status === 401) {
       formError.value = "Сессия истекла. Перенаправление на страницу входа...";
       setTimeout(() => {

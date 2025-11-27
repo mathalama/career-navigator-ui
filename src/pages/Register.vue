@@ -86,7 +86,7 @@ const handleSubmit = async () => {
     const response = await register(form.value);
     if (response.success) {
       successMessage.value = response.message;
-      // Перенаправляем на страницу логина через 3 секунды
+      // Redirect to login page after 3 seconds
       setTimeout(() => {
         router.push("/login");
       }, 3000);

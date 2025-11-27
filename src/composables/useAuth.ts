@@ -43,7 +43,7 @@ export function useAuth() {
     error.value = null;
     try {
       const response = await apiService.register(req);
-      // Не сохраняем токен при регистрации, только возвращаем ответ
+      // Don't save token on registration, just return response
       return response;
     } catch (err) {
       error.value = err as ApiError;

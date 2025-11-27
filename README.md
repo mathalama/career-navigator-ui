@@ -1,54 +1,92 @@
-# AI-based Career Navigator — Frontend (MVP)
+# AI-based Career Navigator — Frontend
 
-Короткая инструкция по локальному запуску и дальнейшей интеграции с бэкендом на Spring.
+Vue 3 + TypeScript + Vite frontend application for career guidance and professional development.
 
-Запуск (варианты):
+## Features
 
-- Открыть локально в браузере (быстрий старт):
+- User authentication and registration
+- Skills assessment and tracking
+- Career recommendations
+- Job listings and search
+- Mentor directory
+- Case studies catalog
+- Admin panel
 
-  В Проводнике дважды кликните `index.html` или в PowerShell выполните:
+## Tech Stack
 
-  ```powershell
-  start .\index.html
-  ```
+- Vue 3 with Composition API
+- TypeScript
+- Vite
+- Tailwind CSS
+- Vue Router
 
-- Запуск через простой HTTP-сервер (рекомендуется для корректной работы fetch и роутинга):
+## Getting Started
 
-  Если установлен Python:
+### Prerequisites
 
-  ```powershell
-  python -m http.server 5173
-  ```
+- Node.js 16+ and npm
 
-  Или через `http-server` (Node.js):
+### Installation
 
-  ```powershell
-  npx http-server -c-1 . -p 5173
-  ```
+```powershell
+npm install
+```
 
-Ожидаемые API (шаблон, бэкенд на Spring реализует эти эндпоинты):
+### Environment Setup
 
-- `POST /api/login` — вход пользователя
-- `GET /api/profile` — получение профиля
-- `POST /api/profile` — обновление профиля
-- `GET /api/recommendations` — рекомендации профессий/курсов
-- `GET /api/jobs` — список вакансий
-- `GET /api/mentors` — список менторов
-- `GET /api/cases` — каталог кейсов
+Copy `.env.example` to `.env` and configure:
 
-Файлы проекта:
+```env
+VITE_API_BASE_URL=
+```
 
-- `index.html` — корневой файл, подключает Tailwind через CDN и `src/app.js`.
-- `src/app.js` — простая hash-based SPA, компоненты UI и заглушки данных.
+Leave empty for development (uses `/api` proxy). For production, set your backend URL.
 
-Дальше можно:
+### Development Server
 
-- Подключить Tailwind через PostCSS/webpack/Vite для production-сборки.
-- Привязать формы и действия к реальным REST-эндпоинтам Spring.
-- Добавить аутентификацию (JWT / сессии) и хранение состояния на клиенте.
+```powershell
+npm run dev
+```
 
-Если хотите, я могу:
+Open http://localhost:5173
 
-- Добавить готовые fetch-вызовы к конкретным эндпоинтам Spring (подскажите URL).
-- Переписать на React/Vue при пожелании.
-- Настроить сборку и dev-server (Vite).
+### Build for Production
+
+```powershell
+npm run build
+```
+
+### Preview Production Build
+
+```powershell
+npm run preview
+```
+
+## API Endpoints
+
+The backend should implement these endpoints:
+
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/profile` - Get user profile
+- `POST /api/auth/profile` - Update user profile
+- `GET /api/recommendations` - Get career recommendations
+- `GET /api/jobs` - Get job listings
+- `GET /api/mentors` - Get mentor directory
+- `GET /api/cases` - Get case studies
+
+## Project Structure
+
+```
+src/
+├── components/       # Reusable Vue components
+├── composables/      # Vue composition functions
+├── pages/           # Page components
+├── router/          # Vue Router configuration
+├── services/        # API service layer
+└── types/           # TypeScript type definitions
+```
+
+## License
+
+MIT

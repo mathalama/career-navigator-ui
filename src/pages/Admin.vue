@@ -114,7 +114,7 @@ const logout = () => {
 };
 
 onMounted(() => {
-  // Проверка прав администратора
+  // Check admin permissions
   if (user.value?.role !== "ADMIN") {
     router.push("/");
   }
